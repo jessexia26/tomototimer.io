@@ -221,3 +221,23 @@ function startTimer(timer){
   }
   timer.start();
 }
+function togglePlay(playerId) {
+    var player = document.getElementById(playerId);
+    if (player.paused) {
+        player.play();
+    } else {
+        player.pause();
+    }
+}
+
+function changeTrack(playerId, track) {
+    var player = document.getElementById(playerId);
+    player.src = track;
+    player.load(); // Reload the player to apply new source
+    player.play(); // Play new track immediately
+}
+
+function setVolume(playerId, volume) {
+    var player = document.getElementById(playerId);
+    player.volume = volume;
+}

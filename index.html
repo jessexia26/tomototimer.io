@@ -11,7 +11,7 @@
 </head>
 
 <div class="fluid-container">
-    <h1 class="text-center">番茄计时器</h1>
+    <h1 class="text-center">和汤圆一起读书吧</h1>
     <div class="settings row">
         <div class="col-md-6 col-sm-6 col-lg-6">
             <p>
@@ -71,4 +71,35 @@
       <source src="assets/notification.mp3" type="audio/mpeg"/>
       <source src="assets/notification.ogg" type="audio/ogg"/>
     </audio>
+    <div class="audio-player-container">
+        <div class="bgm-player">
+            <div class="track" id="track1">
+                <h2>背景音乐</h2>
+                <audio id="audioPlayer1" loop>
+                    <source src="./music/折梦影.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button onclick="togglePlay('audioPlayer1')">播放/暂停</button>
+                <select onchange="changeTrack('audioPlayer1', this.value)">
+                    <option value="./music/折梦影.mp3">折梦影</option>
+                    <option value="./music/碧空澈明.mp3">碧空澈明</option>
+                </select>
+                <label>音量: <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume('audioPlayer1', this.value)"></label>
+            </div>
+            <div class="track" id="track2">
+                <h2>白噪声</h2>
+                <audio id="audioPlayer2" loop>
+                    <source src="./music/Rain.mp3"type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button onclick="togglePlay('audioPlayer2')">播放/暂停</button>
+                <select onchange="changeTrack('audioPlayer2', this.value)">
+                    <option value="./music/Rain.mp3">雨声</option>
+                    <option value="./music/Wind.mp3">风声</option>
+                </select>
+                <label>音量: <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume('audioPlayer2', this.value)"></label>
+            </div>
+        </div>
+    </div>
+    
 </div>

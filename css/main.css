@@ -3,9 +3,7 @@ body{
   color: white;
   font-family: 'Josefin Slab';
 }
-h1.center-text {
-  text-align: center;
-}
+
 .settings{
   width: 60%;
   margin-top: 50px;
@@ -83,6 +81,21 @@ h1.center-text {
 }
 button {
   color: white;
+  background: transparent;
+  border-radius: 5px;
+  border: transparent;
+}
+
+select {
+  color: white;
+  background: transparent;
+  border: 1px solid #ffca99;
+  border-radius: 5px;
+  cursor: pointer; 
+}
+
+select:hover{
+  color: #ffca99;
 }
 .cord{
   padding-top:100px;
@@ -107,6 +120,28 @@ button {
 .rightMove{
   animation: rightBall .5s ease-in-out 0s infinite alternate;
 }
+
+.audio-player-container {
+  width: 100%; /* Take full width of the viewport */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-end; /* Align to bottom */
+  padding: 20px 0; /* Padding at the bottom */
+}
+
+.audio-player {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: solid 2px #ffca99;
+  text-align: center;
+}
+
+.audio-player .track {
+  margin-bottom: 20px;
+}
+
+
 
 
 @keyframes leftBall
@@ -138,4 +173,35 @@ button {
       translateX(0px);
   }
 
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none; 
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid  #ffca99 ;
+  background: #ffca99;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 1rem;
+  background:  #ffca99;
+  border-radius: 1rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none; 
+  height: 1rem;
+  width: 1rem;
+  background-color: white;
+  border-radius: 50%;
+/*slider-thumb border color*/
+  border: 1px solid hsl(335, 100%, 65%);
+/*Colors*/
+  box-shadow: -50rem 0 5rem 20rem hsl(6, 97%, 71%),
+              -40rem 0 5rem 30rem hsl(25, 66%, 66%),
+              -30rem 0 2rem 25rem hsl(23, 84%, 54%),
+              -25.5rem 0 0 25rem  hsl(12, 89%, 51%);
 }
