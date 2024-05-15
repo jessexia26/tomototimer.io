@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Pomodoro Timer</title>
+    <title>Tomato Timer</title>
     <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css">
@@ -13,11 +13,11 @@
 </head>
 
 <div class="fluid-container">
-    <h1 class="text-center">Pomodoro Timer</h1>
+    <h1 class="text-center">番茄计时器</h1>
     <div class="settings row">
         <div class="col-md-6 col-sm-6 col-lg-6">
             <p>
-                Break Length
+                休息时长
                 <br>
                 <button class="break" id="breakSub">-</button>
                 <span class="break" id="breakTime">5</span>
@@ -26,7 +26,7 @@
         </div>
         <div class="col-md-6 col-sm-6 col-lg-6">
             <p>
-                Session Length
+                专注时长
                 <br>
                 <button id="totSub">-</button>
                 <span id="totTime">25</span>
@@ -64,25 +64,13 @@
         </div>
     </div>
     <div class="controls text-center">
-        <button type="button" id="stop">Stop</button>
-        <button type="button" id="start">Start</button>
-        <button type="button" id="reset">Reset</button>
+        <button type="button" id="stop">停止</button>
+        <button type="button" id="start">开始</button>
+        <button type="button" id="reset">重置</button>
     </div>
 
   <audio id="notify">
       <source src="assets/notification.mp3" type="audio/mpeg"/>
       <source src="assets/notification.ogg" type="audio/ogg"/>
     </audio>
-
-  <div class="keyShortcuts text-center">
-    <h3>Keyboard Shortcuts</h3>
-    <ul>
-      <li>Space start/stop the timer</li>
-      <li>ALT + R Reset</li>
-      <li>ALT + P Pomodoro</li>
-    </ul>
-  </div>
-    <p class="sig text-center">
-      Coded by Taylor Milliman
-    </p>
 </div>
