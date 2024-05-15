@@ -3,7 +3,9 @@ body{
   color: white;
   font-family: 'Josefin Slab';
 }
-
+h1.center-text {
+  text-align: center;
+}
 .settings{
   width: 60%;
   margin-top: 50px;
