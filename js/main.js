@@ -1,10 +1,6 @@
 $(document).ready(function() {
     var timer = new Timer(25 * 60 * 1000);
 
-    document.onkeypress = function(evt){
-      keyShortcuts(evt, timer);
-    }
-
     $("#start").on("click", function() {
       startTimer(timer);
     });

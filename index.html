@@ -1,105 +1,152 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en" >
 <head>
-    <title>Tomato Timer</title>
+    <meta charset="UTF-8">
+    <title>Study</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
-<link href='https://fonts.googleapis.com/css?family=Josefin+Slab:600' rel='stylesheet' type='text/css'>
-    <script language="JavaScript" type="text/javascript" src="js/main.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:600' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+SC:wght@200..900&display=swap" rel="stylesheet">
 </head>
-
-<div class="fluid-container">
-    <h1 class="text-center">和汤圆一起读书吧</h1>
-    <div class="settings row">
-        <div class="col-md-6 col-sm-6 col-lg-6">
-            <p>
-                休息时长
-                <br>
-                <button class="break" id="breakSub">-</button>
-                <span class="break" id="breakTime">5</span>
-                <button class="break" id="breakAdd">+</button>
+<body>
+    <div class="fluid-container">
+        <h1 class="text-center">番茄钟</h1>
+        <div class="settings row">
+            <div class="col-md-6 col-sm-6 col-lg-6">
+                <p>
+                    休息时长
+                    <br>
+                    <button class="break" id="breakSub">-</button>
+                    <span class="break" id="breakTime">5</span>
+                    <button class="break" id="breakAdd">+</button>
+                </p>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6">
+                <p>
+                    专注时长
+                    <br>
+                    <button id="totSub">-</button>
+                    <span id="totTime">25</span>
+                    <button id="totAdd">+</button>
+                </p>
+            </div>
+        </div>
+        <div class="clock">
+            <p id="time-display">25:00</p>
+            <p id="break-text" class="break-text">
+              Break!
             </p>
-        </div>
-        <div class="col-md-6 col-sm-6 col-lg-6">
-            <p>
-                专注时长
-                <br>
-                <button id="totSub">-</button>
-                <span id="totTime">25</span>
-                <button id="totAdd">+</button>
-            </p>
-        </div>
-    </div>
-    <div class="clock">
-        <p id="time-display">25:00</p>
-        <p id="break-text" class="break-text">
-          Break!
-        </p>
-        <div class="newton-cradle">
-            <div id="leftBall" class="cord">
-                <div class="ball"></div>
-            </div>
-            <div class="cord">
-                <div class="ball"></div>
-            </div>
-            <div class="cord">
-                <div class="ball"></div>
-            </div>
-            <div class="cord">
-                <div class="ball"></div>
-            </div>
-            <div class="cord">
-                <div class="ball"></div>
-            </div>
-            <div class="cord">
-                <div class="ball"></div>
-            </div>
-            <div id="rightBall" class="cord">
-                <div class="ball" id="first"></div>
+            <div class="newton-cradle">
+                <div id="leftBall" class="cord">
+                    <div class="ball"></div>
+                </div>
+                <div class="cord">
+                    <div class="ball"></div>
+                </div>
+                <div class="cord">
+                    <div class="ball"></div>
+                </div>
+                <div class="cord">
+                    <div class="ball"></div>
+                </div>
+                <div class="cord">
+                    <div class="ball"></div>
+                </div>
+                <div class="cord">
+                    <div class="ball"></div>
+                </div>
+                <div id="rightBall" class="cord">
+                    <div class="ball" id="first"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="controls text-center">
-        <button type="button" id="stop">停止</button>
-        <button type="button" id="start">开始</button>
-        <button type="button" id="reset">重置</button>
-    </div>
-
-  <audio id="notify">
-      <source src="assets/notification.mp3" type="audio/mpeg"/>
-      <source src="assets/notification.ogg" type="audio/ogg"/>
-    </audio>
-    <div class="audio-player-container">
-        <div class="bgm-player">
-            <div class="track" id="track1">
-                <h2>背景音乐</h2>
-                <audio id="audioPlayer1" loop>
-                    <source src="./music/折梦影.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-                <button onclick="togglePlay('audioPlayer1')">播放/暂停</button>
-                <select onchange="changeTrack('audioPlayer1', this.value)">
-                    <option value="./music/折梦影.mp3">折梦影</option>
-                    <option value="./music/碧空澈明.mp3">碧空澈明</option>
-                </select>
-                <label>音量: <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume('audioPlayer1', this.value)"></label>
-            </div>
-            <div class="track" id="track2">
-                <h2>白噪声</h2>
-                <audio id="audioPlayer2" loop>
-                    <source src="./music/Rain.mp3"type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-                <button onclick="togglePlay('audioPlayer2')">播放/暂停</button>
-                <select onchange="changeTrack('audioPlayer2', this.value)">
-                    <option value="./music/Rain.mp3">雨声</option>
-                    <option value="./music/Wind.mp3">风声</option>
-                </select>
-                <label>音量: <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume('audioPlayer2', this.value)"></label>
-            </div>
+        <div class="controls text-center">
+            <button type="button" id="stop">停止</button>
+            <button type="button" id="start">开始</button>
+            <button type="button" id="reset">重置</button>
         </div>
-    </div>
     
-</div>
+      <audio id="notify">
+          <source src="assets/notification.mp3" type="audio/mpeg"/>
+          <source src="assets/notification.ogg" type="audio/ogg"/>
+        </audio>
+        <div class="audio-player-container">
+            <div class="bgm-player">
+                <div class="track" id="track1">
+                    <h2>背景音乐</h2>
+                    <audio id="audioPlayer1" loop>
+                        <source src="./music/折梦影.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button onclick="togglePlay('audioPlayer1')">播放/暂停</button>
+                    <select onchange="changeTrack('audioPlayer1', this.value)">
+                        <option value="./music/折梦影.mp3">折梦影</option>
+                        <option value="./music/碧空澈明.mp3">碧空澈明</option>
+                    </select>
+                    <label>音量: <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume('audioPlayer1', this.value)"></label>
+                </div>
+                <div class="track" id="track2">
+                    <h2>白噪声</h2>
+                    <audio id="audioPlayer2" loop>
+                        <source src="./music/Rain.mp3"type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button onclick="togglePlay('audioPlayer2')">播放/暂停</button>
+                    <select onchange="changeTrack('audioPlayer2', this.value)">
+                        <option value="./music/Rain.mp3">下雨声 </option>
+                        <option value="./music/Wind.mp3">风声</option>
+                    </select>
+                    <label>音量: <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume('audioPlayer2', this.value)"></label>
+                </div>
+            </div>
+        </div>
+        <script language="JavaScript" type="text/javascript" src="js/main.js"></script>
+        
+    </div>
+
+    <div class="todo-list">
+        <!-- Content for todo-list -->
+        <main id="todolist">
+            <h1>
+              Todo List
+              <span>待做事项.</span>
+            </h1>
+          
+            <template v-if="todo.length">
+              <transition-group name="todolist" tag="ul">
+                <li v-for="item in todoByStatus" v-bind:class="item.done ? 'done' : ''" v-bind:key="item.id">
+                  <span class="label">{{item.label}}</span>
+                  <div class="actions">
+                    <button class="btn-picto" type="button" v-on:click="markAsDoneOrUndone(item)" v-bind:aria-label="item.done ? 'Undone' : 'Done'" v-bind:title="item.done ? 'Undone' : 'Done'">
+                      <i aria-hidden="true" class="material-icons">{{ item.done ? 'check_box' : 'check_box_outline_blank' }}</i>
+                    </button>
+                    <button class="btn-picto" type="button" v-on:click="deleteItemFromList(item)" aria-label="Delete" title="Delete">
+                      <i aria-hidden="true" class="material-icons">delete</i>
+                    </button>
+                  </div>
+                </li>
+              </transition-group>
+              <togglebutton 
+                            label="将已完成任务移到末尾"
+                            name="todosort"
+                            v-on:clicked="clickontoogle" />
+            </template>
+            <p v-else class="emptylist">你的待做事项为空.</p>
+          
+            <form name="newform" v-on:submit.prevent="addItem">
+              <label for="newitem">加入待做事项</label>
+              <input type="text" name="newitem" id="newitem" v-model="newitem">
+              <button type="submit">添加</button>
+            </form>
+            <script language="JavaScript" type="text/javascript" src="js/script.js"></script>
+          </main>
+    </div>
+</body>
+
+
+
