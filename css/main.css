@@ -8,7 +8,31 @@ body{
   margin: 0;
 }
 
+.top-buttons {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
+  color:transparent;
+  z-index: 1000;
+  background-color: transparent;
+  border: transparent;
+  font-family: 'Josefin Slab', "Noto Sans SC",serif;
+}
 
+.top-buttons button {
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  display: flex;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  font-family: "Noto Serif SC", "Roboto Slab", serif;
+}
 .todo-list {
   flex: 1;
   padding: 20px;
